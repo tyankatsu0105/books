@@ -16,3 +16,5 @@
   - 次 load valancer から
 - [Web フロントエンド ハイパフォーマンス チューニング](./Web%E3%83%95%E3%83%AD%E3%83%B3%E3%83%88%E3%82%A8%E3%83%B3%E3%83%89%E3%83%8F%E3%82%A4%E3%83%91%E3%83%95%E3%82%A9%E3%83%BC%E3%83%9E%E3%83%B3%E3%82%B9%E3%83%81%E3%83%A5%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0.md)
   - https://www.amazon.co.jp/gp/product/B0728K5JZV/ref=ppx_yo_dt_b_d_asin_title_o02?ie=UTF8&psc=1
+- [How JavaScript Works](./HowJavaScriptWorks.md)
+  - https://medium.com/@zlatkov
