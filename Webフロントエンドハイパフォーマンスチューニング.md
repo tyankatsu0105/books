@@ -402,7 +402,93 @@
 - `visibilitychange`イベントもある
   - https://developer.mozilla.org/ja/docs/Web/API/Document/visibilitychange_event
 
+## Forced Synchronous Layout をへらす
+
+- DOM 操作を行うと引き起こされるもの
+  - Calculate Style と Layout
+  - レイアウトに影響を与える DOM 操作を行ったあとに、関連する DOM 要素のレイアウト情報を参照すると発生する
+    - 座標取得
+      - clientLeft
+      - clientTop
+      - offsetLeft
+      - offsetTop
+    - 大きさ取得
+      - clientWidth
+      - clientHeight
+      - offsetWidth
+      - offsetHeight
+    - 座標や大きさ取得
+      - getClientRects()
+      - getBoundingClientRect()
+- Scripting フレームの最中に同期的に実行されるので、JS の実行パフォーマンスに影響を与える
+- Layout Thrashing を避ける
+  - ループ内で Forced Synchronous Layout を起こすと発生
+  - ループ前に予めレイアウト情報を取得しておくと防げる
+- Forced Synchronous Layout を避ける
+  - レイアウト情報を取得したい DOM のレイアウト情報を、DOM 操作を行う前に取得しておく
+  - 予め取得できない場合は `requestAnimationFrame()`のコールバック内でレイアウト情報を参照する
+    - 新たに追加した DOM のレイアウト情報を参照したい場合とか
+    - コールバック実行タイミングは DOM 操作が終わって再レンダリングが終わってからなので、すでに算出済みのレイアウト情報を参照することになり、Forced Synchronous Layout がおこらない
+
+## DocumentFragment を使う
+
+- `document.createDocumentFragment()`で複数の DOM を格納し、fragment に貯めた DOM を`document.body.appendChild(fragment)`のように一気に追加する
+- DOM を随時作って随時 appendChild するよりは、一回の DOM ツリー干渉で済むので効率がいい
+- https://codesandbox.io/s/reverent-leaf-9je9q3?file=/src/index.ts
+
+## requestAnimationFrame を使う
+
+- setTimeout や setInterval は、特定の時間を引数に入れないといけず、デバイスの負荷による時間調整が容易ではない
+- requestAnimationFrame はブラウザのレンダリングの処理に合わせて適切なタイミングで呼び出されるので、ちゃんとすれば 60fps で処理が実行可能
+
 # 6 章 レイアウトツリー構築のチューニング
+
+- 再レンダリングの Calculate Style は、全て計算し直すわけではなくて、新たに計算し直さないといけない DOM 要素のスタイルのみが計算される
+- セレクタのチューニング
+  - セレクタをシンプルにする
+    - 右から左に DOM と突き合わせながらマッチング処理をするので、セレクタが短いほどマッチング処理が減る
+  - 子孫セレクタ（`.header .nav .nav-list`）や間接セレクタ（`header > div span`）を避ける
+    - 子から見て、親をたどる必要があるので、深い DOM ツリーで親子関係が離れているとその分たどる距離が長い
+    - バックトラック
+      - 一部の処理を何回もやり直すことになる
+        1. 要素名が span
+        2. div 要素が親のどこかにあるはずなので上を参照していく
+        3. その親に header があるはずなので、親を見る。なければ 2 をやり直す
+  - 全称セレクタを避ける
+    - 余計なマッチング処理が発生するから
+    - 全要素が対象なので、全要素とマッチングした上で、親要素のマッチング処理を行ったりしてしまう
+      - `header *`
+        1. 要素
+        2. その要素の親に header 要素がないか探索する。
+
+## Layout を避ける
+
+- Layout を引き起こす典型的な原因は
+  - DOM 要素の座標や大きさの変化
+    - ボックスモデルにおける、ボックスの大きさに影響を与える CSS プロパティの変化
+      - height, width
+      - top, left, right, bottom
+      - margin, padding
+      - border
+  - DOM ツリーの構造の変化
+    - DOM の増減
+      - removeChild
+      - appendChild
+      - innerHTML
+  - DOM 要素のコンテンツの変化
+    - テキストの増減
+- 以下のときに DOM 要素は独自のレイアウトを作り、他の DOM に依存することなく負荷を減らせる
+  - svg 要素
+  - input[type=text or search]
+  - inline, inline-block ではない
+  - height, width が auto 以外
+  - height に%を使っていない
+  - overflow scroll or auto or hidden
+
+## img 要素のサイズを固定する
+
+- 無駄な Layout を h ラスには img に width と height 属性を指定する
+- 指定しない場合、仮のサイズで Layout が行われ、画像のサイズが確定した時点で再度 Layout とレンダリングが走る
 
 # 7 章 レンダリング結果の描画のチューニング
 
