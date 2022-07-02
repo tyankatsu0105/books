@@ -492,6 +492,106 @@
 
 # 7 章 レンダリング結果の描画のチューニング
 
+## 再描画
+
+- Painting フェーズが終わっても、インタラクションのたびに再度 Painting が引き起こされる = Repaint
+- Repaint の原因は
+  - Rendering の Layout が呼び出される
+    - Layout がおこると後続フェーズの Painting のすべて（Paint、Rasterize、Composite Layers）が行われる
+  - Painting だけが呼び出される
+    - 色、背景など、Layout に影響はないが、再描画はしてもらわないといけないものたちが変更されたとき
+  - Composite Layer のみが呼び出される
+    - コストは比較的安価
+    - 高速なアニメーションを実現することができる
+      - opacity の値の変更
+      - transform が別の値になったとき
+
+## レイヤーの生成条件
+
+- Paint や Rasterize はレイヤーごとに処理を行う = レイヤーを描画する処理を行う
+- Composite Layers ではレイヤーを一枚に合成して最終的な描画結果を生成する
+- レイヤーは以下のときに生成される
+  - z-index で上下関係を指定
+  - transform で 3D 変形
+- レイヤーがツリー状に構成される = レイヤーツリー
+- GPU で合成されるレイヤーを Graphics Layer
+  - GPU による合成
+    - Rasterize でビットマップ化されたレイヤーが GPU の VRAM へ送られ、合成されて描画される
+    - 要素に施された transform での 3D 変形やエフェクトなどの特定のプロパティにしたがってビットマップを加工・変形して合成
+- Graphics Layer が多くなると
+  - それを保持するためにメモリを消費する
+  - VRAMt 転送に時間がかかる
+  - Composite Layers までにかかるオーバーヘッドが大きくなる
+- Graphics Layer の性質を有効に扱うと、アニメーション処理を高速化可能
+
 # 8 章 高度なチューニング
+
+## バーチャルレンダリング
+
+- ユーザが目に見える範囲でのみ DOM をツリーに挿入する
+  - 大量の要素を DOM ツリーに挿入するよりは効率がいい
+    - Calc StyleLayout や Paint などを経ないため
+
+## なめらかなアニメーションの実現
+
+- 60fps を実現させる
+  - RAIL モデルだと 1 描画 16ms 以内
+    - 再レンダリングの各フェーズをスキップすることが大事
+- Calc Style のスキップ
+  - DOM ツリーの構造の変化（appendChild など）と DOM 要素の属性の変化（class 属性付与など）を避ける
+  - 各 Node の style 属性を直接変更すると、DOM 要素と CSS ルールのマッチング処理を避けられる
+- Layout のスキップ
+  - 要素の位置や大きさを変えたい場合は、transform プロパティを使う
+    - translate()
+    - scale()
+- Paint をスキップ
+  - 以下の CSS プロパティは Paint を引き起こさずに Composite Layers のみを引き起こすので、なるべくこれらをアニメーションに使う
+    - opacity
+    - transform
+- Composite Layers の最適化
+  - レイヤー合成には CPU 合成と GPU 合成がある
+  - GPU 合成
+    - 特定の CSS プロパティを使うと、GPU 合成のレイヤーが生成され、GPU へと転送後に変形、合成される。
+      - transform
+    - このレイヤーは値が変わっても GPU へと転送済みのレイヤーを再利用する
+      - https://codesandbox.io/s/broken-brook-gvkzcg?file=/index.html
+
+## will-change
+
+- 近いうちに値が変化する CSS プロパティを指定する
+  - とはいっても、指定できる CSS プロパティは限られていて、translateZ ハックに利用できる opacity と transform の 2 つのみ
+- JS での指定が推奨
+  - 変化開始のタイミングのみに will-change をつけて、変化終了のタイミングで will-change を外すことを想定されているため
+  - CSS で固定でつけることはないが、常に変化する場合は可能。
+    - スクロールに応じてアニメーションされる
+    - 常にアニメーションされている
+- ブラウザではすでに最適化が行われているはずで、will-change に期待しすぎてはいけない。使う場合は必ずパフォーマンスの計測をする。
+  - いくつかのブラウザでは最適化が行われない
+
+## CSS Containment https://caniuse.com/mdn-css_properties_contain
+
+- https://developer.mozilla.org/ja/docs/Web/CSS/contain
+- 前提として、再レンダリングは一部の CSSOM や DOM に変更があったとしても、レイアウト計算や描画自体を全体でやりなおすため、再レンダリング対象はドキュメント全体
+- `contain`はレンダリングを一部の DOM に封じ込められる
+  - 見た目のためではなくてパフォーマンスのため
+    - will-change と似てる
+- 対象の DOM に contain を指定すると、それ以下の子孫 DOM で発生した再レンダリングをその DOM 以下に制限できたり（ドキュメント全体の再レンダリングを防げる）、全体の再レンダリングの対象外にすることもできる
+- 値
+  - layout
+    - レイアウトの計算を子孫以下に閉じ込める
+    - レイアウトの関係性が外に漏れない
+  - paint
+    - ペイントの計算を子孫以下に閉じ込める
+    - 対象外にある要素を描画しない
+  - style
+    - スタイルを閉じ込める
+    - 連番スタイルをリセットする
+  - size
+    - 要素の大きさを閉じ込める
+    - 子要素を持たない要素としてレイアウト計算する
+      - 縦横がない
+    - 一緒に width と height 指定もしないと 0px×0px の要素とされる
+  - content = paint, layout, style
+  - strict = paint, layout, style, size
 
 # 9 章 認知的チューニング
