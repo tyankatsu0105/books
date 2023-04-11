@@ -52,3 +52,8 @@
 
 機能開発は 3 つの目標のトレードオフの繰り返し  
 プロジェクトで最適な距離感を見つけることが重要
+
+## コマンド
+
+https://github.com/tyankatsu0105/design-patterns/tree/main/TypeScript/GOF#command
+undo redo のように状態が必要になるときがあるが、JS のようにクロージャーがあれば、クラス以外に関数でもかける。
