@@ -57,3 +57,16 @@
 
 https://github.com/tyankatsu0105/design-patterns/tree/main/TypeScript/GOF#command
 undo redo のように状態が必要になるときがあるが、JS のようにクロージャーがあれば、クラス以外に関数でもかける。
+
+## フライウェイト
+
+https://github.com/tyankatsu0105/design-patterns/tree/main/TypeScript/GOF#flyweight
+最低限共通化してもいいモデルを一個生成して、それを複数のインスタンス化する際に流用する  
+オブジェクトの軽量化を担う
+
+- intrinsic
+  - すべてのインスタンスで共有できるモデル
+- extrinsic
+  - インスタンス固有のもの
+
+の２つで構成
