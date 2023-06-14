@@ -1,3 +1,27 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [How JavaScript works: an overview of the engine, the runtime, and the call stack](#how-javascript-works-an-overview-of-the-engine-the-runtime-and-the-call-stack)
+- [How JavaScript works: inside the V8 engine + 5 tips on how to write optimized code](#how-javascript-works-inside-the-v8-engine--5-tips-on-how-to-write-optimized-code)
+- [How JavaScript works: memory management + how to handle 4 common memory leaks](#how-javascript-works-memory-management--how-to-handle-4-common-memory-leaks)
+- [How JavaScript works: Event loop and the rise of Async programming + 5 ways to better coding with async/await](#how-javascript-works-event-loop-and-the-rise-of-async-programming--5-ways-to-better-coding-with-asyncawait)
+- [How JavaScript works: Deep dive into WebSockets and HTTP/2 with SSE + how to pick the right path](#how-javascript-works-deep-dive-into-websockets-and-http2-with-sse--how-to-pick-the-right-path)
+- [How JavaScript works: A comparison with WebAssembly + why in certain cases it’s better to use it over JavaScript](#how-javascript-works-a-comparison-with-webassembly--why-in-certain-cases-its-better-to-use-it-over-javascript)
+- [How JavaScript works: The building blocks of Web Workers + 5 cases when you should use them](#how-javascript-works-the-building-blocks-of-web-workers--5-cases-when-you-should-use-them)
+- [How JavaScript works: Service Workers, their lifecycle and use cases](#how-javascript-works-service-workers-their-lifecycle-and-use-cases)
+- [How JavaScript works: the mechanics of Web Push Notifications](#how-javascript-works-the-mechanics-of-web-push-notifications)
+- [How JavaScript works: tracking changes in the DOM using MutationObserver](#how-javascript-works-tracking-changes-in-the-dom-using-mutationobserver)
+- [How JavaScript works: the rendering engine and tips to optimize its performance](#how-javascript-works-the-rendering-engine-and-tips-to-optimize-its-performance)
+- [How JavaScript Works: Inside the Networking Layer + How to Optimize Its Performance and Security](#how-javascript-works-inside-the-networking-layer--how-to-optimize-its-performance-and-security)
+- [How JavaScript works: Under the hood of CSS and JS animations + how to optimize their performance](#how-javascript-works-under-the-hood-of-css-and-js-animations--how-to-optimize-their-performance)
+- [How JavaScript works: Storage engines + how to choose the proper storage API](#how-javascript-works-storage-engines--how-to-choose-the-proper-storage-api)
+- [How JavaScript works: the internals of Shadow DOM + how to build self-contained components](#how-javascript-works-the-internals-of-shadow-dom--how-to-build-self-contained-components)
+- [How JavaScript works: WebRTC and the mechanics of peer to peer networking](#how-javascript-works-webrtc-and-the-mechanics-of-peer-to-peer-networking)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## [How JavaScript works: an overview of the engine, the runtime, and the call stack](https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf)
 
 - JS エンジンは Google の V8

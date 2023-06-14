@@ -1,3 +1,13 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
+**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
+
+- [Database の種類](#database-の種類)
+- [垂直と水平のスケーリング](#垂直と水平のスケーリング)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 ## Database の種類
 
 - リレーショナルデータベース

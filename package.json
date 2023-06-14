@@ -1,0 +1,26 @@
+{
+  "name": "books",
+  "version": "0.0.1",
+  "description": "<!-- START doctoc generated TOC please keep comment here to allow auto update --> <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tyankatsu0105/books.git"
+  },
+  "keywords": [],
+  "author": "tyankatsu <frips.ryilsufupe+dev@gmail.com> (https://tyankatsu.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tyankatsu0105/books/issues"
+  },
+  "homepage": "https://github.com/tyankatsu0105/books#readme",
+  "devDependencies": {
+    "doctoc": "2.2.1",
+    "husky": "8.0.3",
+    "prettier": "2.8.8"
+  }
+}
