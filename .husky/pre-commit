@@ -3,3 +3,4 @@
 
 npx doctoc .
 npx prettier --write .
+git add -A
