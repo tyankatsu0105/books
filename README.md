@@ -1,11 +1,15 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-- [目次](#%E7%9B%AE%E6%AC%A1)
+- [目次](#目次)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 読んだ本や記事の感想とか学んだこととか
+
+```bash
+npm install
+```
 
 # 目次
 
