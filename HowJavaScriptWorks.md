@@ -1,8 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
-
 - [How JavaScript works: an overview of the engine, the runtime, and the call stack](#how-javascript-works-an-overview-of-the-engine-the-runtime-and-the-call-stack)
 - [How JavaScript works: inside the V8 engine + 5 tips on how to write optimized code](#how-javascript-works-inside-the-v8-engine--5-tips-on-how-to-write-optimized-code)
 - [How JavaScript works: memory management + how to handle 4 common memory leaks](#how-javascript-works-memory-management--how-to-handle-4-common-memory-leaks)

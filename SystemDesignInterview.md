@@ -1,10 +1,8 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
-
-- [Database の種類](#database-の種類)
-- [垂直と水平のスケーリング](#垂直と水平のスケーリング)
+- [Database の種類](#database-%E3%81%AE%E7%A8%AE%E9%A1%9E)
+- [垂直と水平のスケーリング](#%E5%9E%82%E7%9B%B4%E3%81%A8%E6%B0%B4%E5%B9%B3%E3%81%AE%E3%82%B9%E3%82%B1%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 

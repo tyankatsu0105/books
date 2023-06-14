@@ -1,8 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
-
 - [いいデザイン](#%E3%81%84%E3%81%84%E3%83%87%E3%82%B6%E3%82%A4%E3%83%B3)
 - [プログラミングフロー](#%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0%E3%83%95%E3%83%AD%E3%83%BC)
 - [よいアーキテクチャの豊漁発揮のタイミング](#%E3%82%88%E3%81%84%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3%E3%81%AE%E8%B1%8A%E6%BC%81%E7%99%BA%E6%8F%AE%E3%81%AE%E3%82%BF%E3%82%A4%E3%83%9F%E3%83%B3%E3%82%B0)

@@ -1,8 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
-
 - [コードを書く際の 4 つのゴール](#%E3%82%B3%E3%83%BC%E3%83%89%E3%82%92%E6%9B%B8%E3%81%8F%E9%9A%9B%E3%81%AE-4-%E3%81%A4%E3%81%AE%E3%82%B4%E3%83%BC%E3%83%AB)
 - [コード品質の柱](#%E3%82%B3%E3%83%BC%E3%83%89%E5%93%81%E8%B3%AA%E3%81%AE%E6%9F%B1)
 - [null 安全](#null-%E5%AE%89%E5%85%A8)

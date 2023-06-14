@@ -1,8 +1,6 @@
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
-**Table of Contents** _generated with [DocToc](https://github.com/thlorenz/doctoc)_
-
 - [FP](#fp)
 - [参照](#%E5%8F%82%E7%85%A7)
 - [内容](#%E5%86%85%E5%AE%B9)
