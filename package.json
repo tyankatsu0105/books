@@ -21,6 +21,6 @@
   "devDependencies": {
     "doctoc": "2.2.1",
     "husky": "8.0.3",
-    "prettier": "2.8.8"
+    "prettier": "3.0.0"
   }
 }
