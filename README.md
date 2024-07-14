@@ -44,3 +44,5 @@ npm install
   - https://amzn.asia/d/fUMJRyI
 - [令和4年度改定対応診療報酬・介護報酬の仕組みと考え方第6版](./令和4年度改定対応診療報酬・介護報酬の仕組みと考え方第6版.md)
   - https://www.jnapc.co.jp/products/detail/4009
+- [Azure OpenAI ServiceではじめるChatGPT/LLMシステム構築入門 ](./Azure%20OpenAI%20ServiceではじめるChatGPT%20LLMシステム構築入門%20.md)
+  - https://amzn.asia/d/028u8Y8C
