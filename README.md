@@ -46,3 +46,7 @@ npm install
   - https://www.jnapc.co.jp/products/detail/4009
 - [Azure OpenAI ServiceではじめるChatGPT/LLMシステム構築入門 ](./Azure%20OpenAI%20ServiceではじめるChatGPT%20LLMシステム構築入門%20.md)
   - https://amzn.asia/d/028u8Y8C
+- [Lean Analytics―スタートアップのためのデータ解析と活用法](./Lean%20Analytics.md)
+  - https://www.oreilly.co.jp/books/9784873117119/
+- [Prompt Engineering](./Prompt%20Engineering.md)
+  - https://www.kaggle.com/whitepaper-prompt-engineering?utm_source=pocket_saves
