@@ -19,8 +19,8 @@
   },
   "homepage": "https://github.com/tyankatsu0105/books#readme",
   "devDependencies": {
-    "doctoc": "2.2.1",
-    "husky": "8.0.3",
-    "prettier": "3.0.0"
+    "doctoc": "^2.5.0",
+    "husky": "^9.1.7",
+    "prettier": "^3.9.10"
   }
 }
