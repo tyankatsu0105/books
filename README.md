@@ -50,3 +50,5 @@ npm install
   - https://www.oreilly.co.jp/books/9784873117119/
 - [Prompt Engineering](./Prompt%20Engineering.md)
   - https://www.kaggle.com/whitepaper-prompt-engineering?utm_source=pocket_saves
+- [エンジニア育成現場の「失敗」集めてみた。 42の失敗事例で学ぶマネジメントのうまい進めかた](./エンジニア育成現場の「失敗」集めてみた。.md)
+  - https://www.shoeisha.co.jp/book/detail/9784798189666
